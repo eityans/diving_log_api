@@ -81,7 +81,6 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  url: <%= ENV["MY_APP_DATABASE_URL"] %>
   primary: &primary_production
     <<: *default
     database: diving_log_api_production
