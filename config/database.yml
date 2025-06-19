@@ -84,8 +84,9 @@ production:
   primary: &primary_production
     <<: *default
     database: diving_log_api_production
-    username: diving_log_api
-    password: <%= ENV["DIVING_LOG_API_DATABASE_PASSWORD"] %>
+    host: <%= ENV["APP_DATABASE_HOST"] %>
+    username: <%= ENV["APP_DATABASE_USER"] %>
+    password: <%= ENV["APP_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
     database: diving_log_api_production_cache
