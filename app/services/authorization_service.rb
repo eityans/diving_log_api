@@ -8,6 +8,11 @@ class AuthorizationService
     User.find_by!(sub: payload["sub"])
   end
 
+  def generate_user!
+    payload, _header = verify_token
+    User.find_or_create_by(sub: payload["sub"])
+  end
+
   private
 
   def http_token
