@@ -23,6 +23,11 @@ class DiveLogsController < SecuredController
     render json: { error: "User not found" }, status: :not_found
   end
 
+  def my_logs
+    dive_logs = current_user.dive_logs
+    render json: dive_logs
+  end
+
   private
 
   def dive_log_params

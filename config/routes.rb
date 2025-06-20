@@ -15,4 +15,5 @@ Rails.application.routes.draw do
     resources :dive_logs, only: [ :index ], controller: "dive_logs", action: "user_logs"
   end
   get "users/me", to: "users#me"
+  get "users/me/logs", to: "dive_logs#my_logs"
 end
