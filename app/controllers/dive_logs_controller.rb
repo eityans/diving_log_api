@@ -1,9 +1,16 @@
 class DiveLogsController < SecuredController
-  skip_before_action :authorize_request, only: [ :index, :user_logs ]
+  skip_before_action :authorize_request, only: [ :index, :user_logs, :show ]
 
   def index
     dive_logs = DiveLog.all
     render json: dive_logs
+  end
+
+  def show
+    dive_log = DiveLog.find(params[:id])
+    render json: dive_log
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: "Dive log not found" }, status: :not_found
   end
 
   def create
@@ -32,6 +39,17 @@ class DiveLogsController < SecuredController
     dive_log = current_user.dive_logs.find(params[:id])
     dive_log.destroy
     head :no_content
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: "Dive log not found or not authorized" }, status: :not_found
+  end
+
+  def update
+    dive_log = current_user.dive_logs.find(params[:id])
+    if dive_log.update(dive_log_params)
+      render json: dive_log
+    else
+      render json: { errors: dive_log.errors }, status: :unprocessable_entity
+    end
   rescue ActiveRecord::RecordNotFound
     render json: { error: "Dive log not found or not authorized" }, status: :not_found
   end
