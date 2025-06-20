@@ -1,5 +1,5 @@
 class DiveLogsController < SecuredController
-  skip_before_action :authorize_request, only: [ :index ]
+  skip_before_action :authorize_request, only: [ :index, :user_logs ]
 
   def index
     dive_logs = DiveLog.all
@@ -13,6 +13,14 @@ class DiveLogsController < SecuredController
     else
       render json: { errors: dive_log.errors }, status: :unprocessable_entity
     end
+  end
+
+  def user_logs
+    user = User.find(params[:user_id])
+    dive_logs = user.dive_logs
+    render json: dive_logs
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: "User not found" }, status: :not_found
   end
 
   private
