@@ -1,4 +1,11 @@
 class DiveLogsController < SecuredController
+  skip_before_action :authorize_request, only: [ :index ]
+
+  def index
+    dive_logs = DiveLog.all
+    render json: dive_logs
+  end
+
   def create
     dive_log = current_user.dive_logs.build(dive_log_params)
     if dive_log.save

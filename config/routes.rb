@@ -10,5 +10,5 @@ Rails.application.routes.draw do
 
   get "test", to: "test#index"
 
-  resources :dive_logs, only: [ :create ]
+  resources :dive_logs, only: [ :index, :create ]
 end
