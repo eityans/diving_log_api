@@ -10,9 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_20_025926) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_20_033137) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "dive_logs", force: :cascade do |t|
+    t.integer "dive_number", null: false
+    t.string "spot_name", null: false
+    t.date "date"
+    t.time "entry_time"
+    t.time "exit_time"
+    t.string "guide_name"
+    t.float "max_temp"
+    t.float "min_temp"
+    t.float "max_depth"
+    t.float "average_depth"
+    t.float "weight"
+    t.text "equipment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_dive_logs_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -20,4 +39,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_20_025926) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "dive_logs", "users"
 end
