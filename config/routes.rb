@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   get "test", to: "test#index"
 
-  resources :dive_logs, only: [ :index, :create ]
+  resources :dive_logs, only: [ :index, :create, :destroy ]
   resources :users, only: [ :create ] do
     resources :dive_logs, only: [ :index ], controller: "dive_logs", action: "user_logs"
   end

@@ -28,6 +28,14 @@ class DiveLogsController < SecuredController
     render json: dive_logs
   end
 
+  def destroy
+    dive_log = current_user.dive_logs.find(params[:id])
+    dive_log.destroy
+    head :no_content
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: "Dive log not found or not authorized" }, status: :not_found
+  end
+
   private
 
   def dive_log_params
