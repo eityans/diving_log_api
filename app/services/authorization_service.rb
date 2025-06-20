@@ -4,7 +4,13 @@ class AuthorizationService
   end
 
   def authenticate_request!
-    verify_token
+    payload, _header = verify_token
+    User.find_by!(sub: payload["sub"])
+  end
+
+  def generate_user!
+    payload, _header = verify_token
+    User.find_or_create_by(sub: payload["sub"])
   end
 
   private
