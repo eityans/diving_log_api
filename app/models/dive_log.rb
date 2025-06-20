@@ -21,7 +21,8 @@
 #
 # Indexes
 #
-#  index_dive_logs_on_user_id  (user_id)
+#  index_dive_logs_on_dive_number_and_user_id  (dive_number,user_id) UNIQUE
+#  index_dive_logs_on_user_id                  (user_id)
 #
 # Foreign Keys
 #
