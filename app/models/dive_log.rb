@@ -4,14 +4,15 @@
 #
 #  id            :bigint           not null, primary key
 #  average_depth :float
-#  date          :date
+#  date          :date             not null
 #  dive_number   :integer          not null
-#  entry_time    :time
+#  entry_time    :string
 #  equipment     :text
-#  exit_time     :time
+#  exit_time     :string
 #  guide_name    :string
 #  max_depth     :float
 #  max_temp      :float
+#  memo          :text
 #  min_temp      :float
 #  spot_name     :string           not null
 #  weight        :float
@@ -30,7 +31,13 @@
 #
 class DiveLog < ApplicationRecord
   belongs_to :user
-  validates :dive_number, presence: true
+
+  validates :dive_number,
+    presence: true,
+    numericality: { only_integer: true },
+    uniqueness: { scope: :user_id }
+
   validates :spot_name, presence: true
+  validates :date, presence: true
   validates :user_id, presence: true
 end

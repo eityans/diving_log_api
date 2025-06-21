@@ -69,7 +69,8 @@ class DiveLogsController < SecuredController
       :max_depth,
       :average_depth,
       :weight,
-      :equipment
+      :equipment,
+      :memo
     )
   end
 end
