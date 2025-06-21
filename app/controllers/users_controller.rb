@@ -11,6 +11,12 @@ class UsersController < SecuredController
   end
 
   def me
-    render json: { id: current_user.id, sub: current_user.sub, name: current_user.name }
+    max_dive_number = current_user.dive_logs.maximum(:dive_number) || 0
+    render json: {
+      id: current_user.id,
+      sub: current_user.sub,
+      name: current_user.name,
+      max_dive_number: max_dive_number
+    }
   end
 end
