@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_21_130358) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_21_150653) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -31,6 +31,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_21_130358) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.text "memo"
+    t.integer "visibility", comment: "Visibility in meters"
     t.index ["dive_number", "user_id"], name: "index_dive_logs_on_dive_number_and_user_id", unique: true
     t.index ["user_id"], name: "index_dive_logs_on_user_id"
   end

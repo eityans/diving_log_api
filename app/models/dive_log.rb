@@ -2,23 +2,24 @@
 #
 # Table name: dive_logs
 #
-#  id            :bigint           not null, primary key
-#  average_depth :float
-#  date          :date             not null
-#  dive_number   :integer          not null
-#  entry_time    :string
-#  equipment     :text
-#  exit_time     :string
-#  guide_name    :string
-#  max_depth     :float
-#  max_temp      :float
-#  memo          :text
-#  min_temp      :float
-#  spot_name     :string           not null
-#  weight        :float
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  user_id       :bigint           not null
+#  id                               :bigint           not null, primary key
+#  average_depth                    :float
+#  date                             :date             not null
+#  dive_number                      :integer          not null
+#  entry_time                       :string
+#  equipment                        :text
+#  exit_time                        :string
+#  guide_name                       :string
+#  max_depth                        :float
+#  max_temp                         :float
+#  memo                             :text
+#  min_temp                         :float
+#  spot_name                        :string           not null
+#  visibility(Visibility in meters) :integer
+#  weight                           :float
+#  created_at                       :datetime         not null
+#  updated_at                       :datetime         not null
+#  user_id                          :bigint           not null
 #
 # Indexes
 #

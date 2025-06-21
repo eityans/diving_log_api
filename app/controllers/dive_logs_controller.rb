@@ -70,7 +70,8 @@ class DiveLogsController < SecuredController
       :average_depth,
       :weight,
       :equipment,
-      :memo
+      :memo,
+      :visibility
     )
   end
 end
