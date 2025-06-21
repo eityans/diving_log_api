@@ -31,7 +31,7 @@ class DiveLogsController < SecuredController
   end
 
   def my_logs
-    dive_logs = current_user.dive_logs
+    dive_logs = current_user.dive_logs.order(dive_number: :desc)
     render json: dive_logs
   end
 
