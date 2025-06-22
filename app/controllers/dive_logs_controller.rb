@@ -71,7 +71,8 @@ class DiveLogsController < SecuredController
       :weight,
       :equipment,
       :memo,
-      :visibility
+      :visibility,
+      :air_remaining
     )
   end
 end
