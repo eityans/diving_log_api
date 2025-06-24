@@ -37,7 +37,7 @@
 class DiveLog < ApplicationRecord
   belongs_to :user
 
-  enum :tank_material, [ :steel, :aluminum ]
+  enum :tank_material, { steel: 1, aluminum: 2 }
 
   validates :dive_number,
     presence: true,
