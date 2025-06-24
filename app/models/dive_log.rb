@@ -16,9 +16,10 @@
 #  memo                                         :text
 #  min_temp                                     :float
 #  point_name(Dive point name)                  :string
+#  shop_name(Dive shop name)                    :string
 #  spot_name                                    :string           not null
 #  tank_capacity(Tank capacity in liters)       :integer
-#  tank_material(0: steel, 1: aluminum)         :integer          default(0)
+#  tank_material(0: steel, 1: aluminum)         :integer          default(NULL)
 #  visibility(Visibility in meters)             :integer
 #  weight                                       :float
 #  created_at                                   :datetime         not null

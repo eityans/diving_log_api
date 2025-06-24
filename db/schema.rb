@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_24_114634) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_24_123211) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -36,6 +36,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_24_114634) do
     t.string "point_name", comment: "Dive point name"
     t.integer "tank_material", default: 0, comment: "0: steel, 1: aluminum"
     t.integer "tank_capacity", comment: "Tank capacity in liters"
+    t.string "shop_name", comment: "Dive shop name"
     t.index ["dive_number", "user_id"], name: "index_dive_logs_on_dive_number_and_user_id", unique: true
     t.index ["user_id"], name: "index_dive_logs_on_user_id"
   end

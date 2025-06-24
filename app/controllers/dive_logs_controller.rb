@@ -75,7 +75,8 @@ class DiveLogsController < SecuredController
       :air_remaining,
       :point_name,
       :tank_material,
-      :tank_capacity
+      :tank_capacity,
+      :shop_name
     )
   end
 end
