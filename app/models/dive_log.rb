@@ -15,6 +15,7 @@
 #  max_temp                                     :float
 #  memo                                         :text
 #  min_temp                                     :float
+#  point_name(Dive point name)                  :string
 #  spot_name                                    :string           not null
 #  visibility(Visibility in meters)             :integer
 #  weight                                       :float
