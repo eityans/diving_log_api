@@ -12,11 +12,14 @@ class UsersController < SecuredController
 
   def me
     max_dive_number = current_user.dive_logs.maximum(:dive_number) || 0
+    last_dive = current_user.dive_logs.order(dive_number: :desc).first
+
     render json: {
       id: current_user.id,
       sub: current_user.sub,
       name: current_user.name,
-      max_dive_number: max_dive_number
+      max_dive_number: max_dive_number,
+      last_dive: last_dive
     }
   end
 end
