@@ -73,7 +73,9 @@ class DiveLogsController < SecuredController
       :memo,
       :visibility,
       :air_remaining,
-      :point_name
+      :point_name,
+      :tank_material,
+      :tank_capacity
     )
   end
 end

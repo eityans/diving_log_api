@@ -17,6 +17,8 @@
 #  min_temp                                     :float
 #  point_name(Dive point name)                  :string
 #  spot_name                                    :string           not null
+#  tank_capacity(Tank capacity in liters)       :integer
+#  tank_material(0: steel, 1: aluminum)         :integer          default(0)
 #  visibility(Visibility in meters)             :integer
 #  weight                                       :float
 #  created_at                                   :datetime         not null
@@ -34,6 +36,8 @@
 #
 class DiveLog < ApplicationRecord
   belongs_to :user
+
+  enum tank_material: { steel: 0, aluminum: 1 }, _prefix: :tank
 
   validates :dive_number,
     presence: true,
